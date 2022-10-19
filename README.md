@@ -1,4 +1,3 @@
-DB_HOST=myhost_local
-DB_USER=myuser_local
-DB_NAME=mydatabase_local
-JWT_KEY="secretOrKeyJWTRandom"
+Entreprise Social Network
+
+Will be deployed in Vercel, TBD
