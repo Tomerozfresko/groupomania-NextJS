@@ -3,7 +3,7 @@ import useInput from "../../hooks/use-input";
 import classes from "./Register.module.css";
 import Link from "next/link";
 
-export default function Register() {
+export default function Register(props) {
   const passwordValidation = (value) => value.trim() !== "";
   function emailValidation(email) {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
@@ -171,8 +171,8 @@ export default function Register() {
               )}
 
               <button className={classes.loginButton}>Sign Up</button>
-              <button className={classes.loginButton}>
-                <Link href="../login"> Log into Account</Link>
+              <button onClick={props.toggle} className={classes.loginButton}>
+                Connect to your account
               </button>
             </div>
           </div>

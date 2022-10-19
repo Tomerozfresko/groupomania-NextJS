@@ -1,7 +1,7 @@
 import classes from "./LoginForm.module.css";
 import Link from "next/link";
 
-export default function Login() {
+export default function Login(props) {
   return (
     <div className={classes.login}>
       <div className={classes.loginWrapper}>
@@ -17,8 +17,11 @@ export default function Login() {
               <Link href="../main">Log In</Link>
             </button>
             <span className={classes.loginForgot}>Forgot Password?</span>
-            <button className={classes.loginRegisterButton}>
-              <Link href="../register">Create a New Account</Link>
+            <button
+              onClick={props.toggle}
+              className={classes.loginRegisterButton}
+            >
+              Create new account
             </button>
           </div>
         </div>

@@ -22,21 +22,21 @@ function Header() {
       </div>
       <div className={classes.headerRight}>
         <div className={classes.headerLinks}>
-          <span className={classes.headerLink}>Homepage</span>
-          <span className={classes.headerLink}>Timeline</span>
+          <span className={classes.headerLink}>Profil</span>
+          <span className={classes.headerLink}>Login/Logout</span>
         </div>
         <div className={classes.headerIcons}>
           <div className={classes.headerIconItem}>
             <PersonIcon />
-            <span className={classes.headerIconBadge}>1</span>
-          </div>
-          <div className={classes.headerIconItem}>
-            <ChatIcon />
             <span className={classes.headerIconBadge}>2</span>
           </div>
           <div className={classes.headerIconItem}>
+            <ChatIcon />
+            <span className={classes.headerIconBadge}>1</span>
+          </div>
+          <div className={classes.headerIconItem}>
             <NotificationsIcon />
-            <span className={classes.headerIconBadge}>3</span>
+            <span className={classes.headerIconBadge}>4</span>
           </div>
         </div>
         <img
