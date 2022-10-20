@@ -2,8 +2,11 @@ import React from "react";
 import useInput from "../../hooks/use-input";
 import classes from "./Register.module.css";
 // import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Register(props) {
+  const router = useRouter();
+
   const passwordValidation = (value) => value.trim() !== "";
   function emailValidation(email) {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
@@ -85,13 +88,36 @@ export default function Register(props) {
       return;
     }
 
-    console.log(username, enteredEmail, enteredPassword, secondPassword);
-    fetch('')
-
+    const userData = {
+      profilepicture: "https://joeschmoe.io/api/v1/random",
+      username,
+      password: enteredPassword,
+      email: enteredEmail,
+    };
+    function addUser(userData) {
+      const response = fetch("/api/users/signup", {
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          // res.status(200).json({ message: "this is ok" });
+        })
+        .catch((err) => console.log(err));
+    }
+    //add user
+    addUser(userData);
+    // export default NewMeetupPage;
     resetPasswordInput();
     resetEmailInput();
     resetSecondPasswordInput();
     resetUsername();
+    //redirect user
+    // console.log(router);
+    router.push("/main");
   };
 
   return (
@@ -181,3 +207,5 @@ export default function Register(props) {
     </form>
   );
 }
+
+
