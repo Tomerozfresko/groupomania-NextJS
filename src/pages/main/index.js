@@ -10,9 +10,9 @@ function FeedPage() {
   const [posts, setPosts] = useState([]);
 
   useEffect(async () => {
-    let res = await fetch("api/user");
+    let res = await fetch("api/users");
     let users = await res.json();
-    let resPosts = await fetch("api/post");
+    let resPosts = await fetch("api/posts");
     let posts = await resPosts.json();
     setUsers(users);
     setPosts(posts);
