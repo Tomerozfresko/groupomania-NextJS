@@ -2,7 +2,6 @@ import React from "react";
 import Share from "../../share/Share";
 import classes from "./MainFeed.module.css";
 import Post from "../../post/Post";
-import { Posts } from "../../../../db/DUMMY_DATA/DUMMY_DATA";
 
 function MainFeed(props) {
   return (

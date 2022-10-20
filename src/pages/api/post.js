@@ -1,4 +1,4 @@
-const Post = require("../../../db/models/Post");
+const Post = require("./db/models/Post");
 
 export default async function handler(req, res) {
   switch (req.method) {

@@ -1,4 +1,4 @@
-const User = require("../../../db/models/User");
+const User = require("./db/models/User");
 
 export default async function handler(req, res) {
   switch (req.method) {

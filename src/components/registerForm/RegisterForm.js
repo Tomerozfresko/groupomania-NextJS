@@ -1,7 +1,7 @@
 import React from "react";
 import useInput from "../../hooks/use-input";
 import classes from "./Register.module.css";
-import Link from "next/link";
+// import Link from "next/link";
 
 export default function Register(props) {
   const passwordValidation = (value) => value.trim() !== "";
@@ -62,7 +62,6 @@ export default function Register(props) {
     reset: resetEmailInput,
   } = useInput(emailValidation);
 
-  //add here the email logic
   const formSubmissionHandler = (event) => {
     event.preventDefault();
 
@@ -87,6 +86,7 @@ export default function Register(props) {
     }
 
     console.log(username, enteredEmail, enteredPassword, secondPassword);
+    fetch('')
 
     resetPasswordInput();
     resetEmailInput();
