@@ -5,8 +5,13 @@ import ChatIcon from "@mui/icons-material/Chat";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 
 function Header() {
+  function logoutHandler() {
+    console.log("you are logged out");
+    signOut();
+  }
   return (
     <div className={classes.headerContainer}>
       <div className={classes.headerLeft}>
@@ -23,7 +28,10 @@ function Header() {
       <div className={classes.headerRight}>
         <div className={classes.headerLinks}>
           <span className={classes.headerLink}>Profil</span>
-          <span className={classes.headerLink}>Login/Logout</span>
+          <span className={classes.headerLink}>Login</span>
+          <span onClick={logoutHandler} className={classes.headerLink}>
+            Logout
+          </span>
         </div>
         <div className={classes.headerIcons}>
           <div className={classes.headerIconItem}>

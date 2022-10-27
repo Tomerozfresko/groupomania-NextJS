@@ -5,12 +5,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* outline: 1px solid blue; */
 }
 
 .loginWrapper {
   width: 70%;
   height: 70%;
   display: flex;
+  /* outline: 1px solid red; */
+  flex-wrap: wrap;
 }
 
 .loginLeft,
@@ -19,6 +22,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* outline: 1px solid green; */
+  margin-left: 20px;
 }
 
 .loginLogo {
@@ -71,12 +76,12 @@
 }
 
 .loginRegisterButton {
-  width: 60%;
+  width: 100%;
   align-self: center;
   height: 50px;
   border-radius: 10px;
   border: none;
-  background-color: navajowhite;
+  background-color: #ff0000;
   color: white;
   font-size: 20px;
   font-weight: 500;

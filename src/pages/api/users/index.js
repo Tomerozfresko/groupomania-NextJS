@@ -1,14 +1,8 @@
-const User = require("../models/User");
+const User = require("../../../sequelize/models/user");
 
 export default async function handler(req, res) {
-  switch (req.method) {
-    case "GET":
-      let users = await User.findAll();
-      return res.status(200).json(users);
-    case "POST":
-      return;
+  if (req.method === "GET") {
+    const users = await User.findAll({ raw: true });
+    return res.status(200).json(users);
   }
 }
-
-
-

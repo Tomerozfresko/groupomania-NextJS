@@ -1,6 +1,5 @@
 import classes from "./RightBar.module.css";
 import giftImg from "../../../../public/assests/images/post/gift.png";
-import adImg from "../../../../public/assests/images/post/ad.png";
 
 import { Fragment, useState, useEffect } from "react";
 
@@ -9,7 +8,7 @@ import React from "react";
 function RightBar(props) {
   const HomeRightBar = () => {
     return (
-      <Fragment key={"unique"}>
+      <Fragment>
         <div className={classes.birthdayContainer}>
           <img src={giftImg.src} alt="" className={classes.birthdayImg} />
           <span className={classes.birthdayText}>

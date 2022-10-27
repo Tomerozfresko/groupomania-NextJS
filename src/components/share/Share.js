@@ -6,8 +6,11 @@ import PermMediaIcon from "@mui/icons-material/PermMedia";
 import LabelIcon from "@mui/icons-material/Label";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import { useSession } from "next-auth/react";
 
 function Share() {
+  const session = useSession();
+
   return (
     <div className={classes.share}>
       <div className={classes.shareWrapper}>

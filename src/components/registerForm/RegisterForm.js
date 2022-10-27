@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import useInput from "../../hooks/use-input";
 import classes from "./Register.module.css";
-// import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function Register(props) {
   const router = useRouter();
 
-  const passwordValidation = (value) => value.trim() !== "";
+  function passwordValidation(value) {
+    return value.trim() !== "";
+  }
   function emailValidation(email) {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
       return true;
@@ -103,20 +104,17 @@ export default function Register(props) {
         },
       })
         .then((res) => {
-          console.log(res);
-          // res.status(200).json({ message: "this is ok" });
+          console.log("succesfully added new user:", res);
         })
         .catch((err) => console.log(err));
     }
     //add user
     addUser(userData);
-    // export default NewMeetupPage;
     resetPasswordInput();
     resetEmailInput();
     resetSecondPasswordInput();
     resetUsername();
-    //redirect user
-    // console.log(router);
+
     router.push("/main");
   };
 
@@ -133,7 +131,7 @@ export default function Register(props) {
           <div className={classes.loginRight}>
             <div className={classes.loginBox}>
               <input
-                placeholder="Username"
+                placeholder={"Username"}
                 className={`${classes.loginInput} ${
                   usernameHasError && classes.invalidValue
                 }`}
@@ -145,7 +143,6 @@ export default function Register(props) {
               {usernameHasError && (
                 <p className={classes.ErrorText}>Please enter your username</p>
               )}
-
               <input
                 placeholder="Email"
                 className={`${classes.loginInput} ${
@@ -198,7 +195,7 @@ export default function Register(props) {
 
               <button className={classes.loginButton}>Sign Up</button>
               <button onClick={props.toggle} className={classes.loginButton}>
-                Connect to your account
+                Login
               </button>
             </div>
           </div>
@@ -207,5 +204,3 @@ export default function Register(props) {
     </form>
   );
 }
-
-

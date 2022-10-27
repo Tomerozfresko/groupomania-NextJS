@@ -62,35 +62,67 @@
 //   );
 // }
 
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 
-function FetchAPI() {
-  const [data, setData] = useState([]);
+// function FetchAPI() {
+//   const [data, setData] = useState([]);
 
-  //Get Method
-  const apiGet = async () => {
-    let res = await fetch("api/user");
-    let data = await res.json();
-    setData(data);
-  };
+//   //Get Method
+//   const apiGet = async () => {
+//     let res = await fetch("api/user");
+//     let data = await res.json();
+//     setData(data);
+//   };
 
-  return (
-    <div>
-      My API <br />
-      <button onClick={apiGet}>Fetch API</button>
-      <br />
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      <div>
-        <ul>
-          {data.map((item) => (
-            <li key={item.username}>
-              {item.username},{item.profilepicture}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       My API <br />
+//       <button onClick={apiGet}>Fetch API</button>
+//       <br />
+//       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+//       <div>
+//         <ul>
+//           {data.map((item) => (
+//             <li key={item.username}>
+//               {item.username},{item.profilepicture}
+//             </li>
+//           ))}
+//         </ul>
+//       </div>
+//     </div>
+//   );
+// }
 
-export default FetchAPI;
+// export default FetchAPI;
+
+// import { useSession, signIn, signOut } from "next-auth/react";
+
+// export default function Component() {
+//   const { data: session } = useSession();
+//   if (session) {
+//     return (
+//       <>
+//         Signed in as {session.user.email} <br />
+//         <button onClick={() => signOut()}>Sign out</button>
+//       </>
+//     );
+//   }
+//   return (
+//     <>
+//       Not signed in <br />
+//       <button onClick={() => signIn()}>Sign in</button>
+//     </>
+//   );
+// }
+
+// useEffect(async () => {
+//   let res = await fetch("api/users");
+//   let recUsers = await res.json();
+//   let resPosts = await fetch("api/posts");
+//   let recPosts = await resPosts.json();
+
+//   setUsers(recUsers);
+//   setPosts(recPosts);
+// }, []);
+
+

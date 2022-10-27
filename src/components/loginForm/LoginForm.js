@@ -1,38 +1,19 @@
 import classes from "./LoginForm.module.css";
-// import Link from "next/link";
-import { useRouter } from "next/router";
-
 import { useRef } from "react";
+import { useSession, signIn } from "next-auth/react";
 
 export default function Login(props) {
-  const router = useRouter();
-
   const passwordRef = useRef("initial");
   const emailRef = useRef();
 
-  function loginHandler(event) {
+  async function handleLogin(event) {
     event.preventDefault();
 
-    const loginData = {
-      password: passwordRef.current.value,
+    const res = await signIn("credentials", {
       email: emailRef.current.value,
-    };
-    function userLogin(loginData) {
-      const response = fetch("/api/users/login", {
-        method: "POST",
-        body: JSON.stringify(loginData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => console.log(err));
-    }
-
-    userLogin(loginData);
-    router.push("/main");
+      password: passwordRef.current.value,
+      redirect: false,
+    });
   }
 
   return (
@@ -56,16 +37,16 @@ export default function Login(props) {
               placeholder="Password"
               className={classes.loginInput}
             />
-            <button onClick={loginHandler} className={classes.loginButton}>
+            <button onClick={handleLogin} className={classes.loginButton}>
               Login
             </button>
-            <span className={classes.loginForgot}>Forgot Password?</span>
             <button
               onClick={props.toggle}
               className={classes.loginRegisterButton}
             >
-              Create new account
+              Sign Up
             </button>
+            <span className={classes.loginForgot}>Forgot Password?</span>
           </div>
         </div>
       </div>

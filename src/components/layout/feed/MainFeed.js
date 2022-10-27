@@ -10,7 +10,7 @@ function MainFeed(props) {
         <div className={classes.feedWrapper}>
           <Share />
           {props.posts.map((post) => {
-            return <Post key={post.id} postData={post} users={props.users}/>;
+            return <Post key={post.id} postData={post} users={props.users} />;
           })}
         </div>
       </div>
