@@ -1,14 +1,11 @@
-// sync all Models
 const sequelize = require("../database/database");
-const User = require("../models/user"); //it will not work without calling it
-const Post = require("../models/post"); //it will not work without calling it
+const User = require("../models/user");
+const Post = require("../models/user");
 
-//Associations declerations
 User.hasMany(Post);
-Post.belongsTo(User); // created automaticly Userid foreign key in posts table
+Post.belongsTo(User);
 
 sequelize
-  .sync({ force: true })
-  //   .sync()
+  .sync({ alter: true })
   .then((result) => console.log("Tables synced successfully"))
   .catch((error) => console.log(error));

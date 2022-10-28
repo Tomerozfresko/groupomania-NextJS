@@ -1,8 +1,8 @@
 import classes from "./Profile.module.css";
-import Header from "../../components/layout/header/Header.js";
-import Leftbar from "../../components/layout/leftBar/LeftBar";
-import Feed from "../../components/layout/feed/MainFeed";
-import Rightbar from "../../components/layout/rightBar/RightBar";
+import Header from "../../components/header/Header.js";
+import Leftbar from "../../components/leftBar/LeftBar";
+import Feed from "../../components/feed/Feed";
+import Rightbar from "../../components/rightBar/RightBar";
 
 export default function Profile() {
   return (

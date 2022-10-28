@@ -1,7 +1,8 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../database/database");
+const User = require("./user");
 
-const Post = sequelize.define("posts", {
+const Post = sequelize.define("post", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -20,10 +21,6 @@ const Post = sequelize.define("posts", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  userId: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
   like: {
     type: Sequelize.INTEGER,
     allowNull: false,
@@ -32,6 +29,15 @@ const Post = sequelize.define("posts", {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
+  userId: {
+    type: Sequelize.INTEGER,
+    references: {
+      model: User,
+      key: "id",
+    },
+  },
 });
+
+console.log("Post Defined");
 
 module.exports = Post;

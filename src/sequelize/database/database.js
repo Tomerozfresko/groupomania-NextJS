@@ -12,15 +12,9 @@ const sequelize = new Sequelize(
   }
 );
 
-async function checkConnection() {
-  try {
-    await sequelize.authenticate();
-    console.log("Connection established successfully");
-  } catch (error) {
-    console.error("Unable to connect to the database:", error);
-  }
-}
+sequelize.authenticate().then(() => {
+  console.log("Connection established successfully with promise");
+});
 
-checkConnection();
 
 module.exports = sequelize;

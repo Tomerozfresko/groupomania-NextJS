@@ -9,7 +9,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useSession } from "next-auth/react";
 
 function Share() {
-  const session = useSession();
+  // !! protect this path // const session = useSession();
 
   return (
     <div className={classes.share}>

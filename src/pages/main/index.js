@@ -1,9 +1,9 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import Header from "../../components/layout/header/Header";
-import LeftBar from "../../components/layout/leftBar/LeftBar";
-import MainFeed from "../../components/layout/feed/MainFeed";
-import RightBar from "../../components/layout/rightBar/RightBar";
+import Header from "../../components/header/Header";
+import LeftBar from "../../components/leftBar/LeftBar";
+import MainFeed from "../../components/feed/Feed";
+import RightBar from "../../components/rightBar/RightBar";
 import classes from "./FeedPage.module.css";
 
 function FeedPage() {
@@ -13,22 +13,13 @@ function FeedPage() {
   useEffect(async () => {
     let res = await fetch("api/users");
     let recUsers = await res.json();
-    let resPosts = await fetch("api/posts");
+    let resPosts = await fetch("api/posts/read");
     let recPosts = await resPosts.json();
 
     setUsers(recUsers);
     setPosts(recPosts);
+    console.log(recUsers);
   }, []);
-
-  // useEffect(async () => {
-  //   let res = await fetch("api/users");
-  //   let recUsers = await res.json();
-  //   let resPosts = await fetch("api/posts");
-  //   let recPosts = await resPosts.json();
-
-  //   setUsers(recUsers);
-  //   setPosts(recPosts);
-  // }, []);
 
   return (
     <Fragment>

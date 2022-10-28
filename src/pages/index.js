@@ -13,7 +13,7 @@ function Register() {
   }
 
   if (session) {
-    console.log(session);
+    // console.log(session);
     return <FeedPage />;
   } else {
     console.log(session);

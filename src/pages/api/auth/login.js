@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../../../sequelize/models/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 require("dotenv").config({ path: __dirname + "../../../../.env" }); //check if path ok

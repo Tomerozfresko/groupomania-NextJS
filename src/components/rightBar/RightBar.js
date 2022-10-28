@@ -1,5 +1,5 @@
 import classes from "./RightBar.module.css";
-import giftImg from "../../../../public/assests/images/post/gift.png";
+import giftImg from "../../../public/assests/images/post/gift.png";
 
 import { Fragment, useState, useEffect } from "react";
 

@@ -4,7 +4,7 @@ const Post = require("../../../sequelize/models/post");
 const User = require("../../../sequelize/models/user");
 
 export default async function handler(req, res) {
-  if (req.method === "GET") {
+  if (req.method === "POST") {
     const { photo, userId, date, like, comment } = req.body;
     console.log(photo, userId);
     try {
@@ -25,7 +25,6 @@ export default async function handler(req, res) {
         like: like,
         comments: comment,
       };
-
       console.log("the post data:", postData);
 
       return res.status(200).json(postData);
