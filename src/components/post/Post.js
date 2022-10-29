@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { usePost } from "../../hooks/usePost";
+import { usePost } from "../../hooks/useUser";
 import classes from "./Post.module.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import heart from "../../../public/assests/images/post/heart.png";
