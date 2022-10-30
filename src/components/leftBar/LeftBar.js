@@ -11,7 +11,7 @@ import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 
 function LeftBar(props) {
-  console.log("Left bar Page:", props);
+  // console.log(props);
   return (
     <div className={classes.leftBar}>
       <div className={classes.leftBarWrapper}>

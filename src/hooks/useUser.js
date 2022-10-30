@@ -1,12 +1,22 @@
 import useSWR from "swr";
 
-function useUser(id) {
-  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+// const options = {
+//   key:"/api/users/user",
+//   method: "POST",
+//   body: JSON.stringify(email),
+//   headers: { "Content-Type": "application/json" },
+// };
 
-  const { data, error } = useSWR("/api/users", fetcher);
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+// console.log(...args);
+
+function useUser(email) {
+  // console.log("receive request with: ", email);
+
+  const { data, error } = useSWR(`/api/users/${email}`, fetcher);
 
   return {
-    users: data,
+    user: data,
     userIsLoading: !error && !data,
     userIsError: error,
   };

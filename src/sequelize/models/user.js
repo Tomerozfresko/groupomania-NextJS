@@ -35,6 +35,5 @@ const User = sequelize.define("user", {
   },
 });
 
-console.log("User Defined");
 
 module.exports = User;

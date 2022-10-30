@@ -38,6 +38,4 @@ const Post = sequelize.define("post", {
   },
 });
 
-console.log("Post Defined");
-
 module.exports = Post;

@@ -1,6 +1,6 @@
 import classes from "./LoginForm.module.css";
 import { useRef } from "react";
-import { useSession, signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 export default function Login(props) {
   const passwordRef = useRef("initial");
@@ -8,8 +8,7 @@ export default function Login(props) {
 
   async function handleLogin(event) {
     event.preventDefault();
-
-    const res = await signIn("credentials", {
+    await signIn("credentials", {
       email: emailRef.current.value,
       password: passwordRef.current.value,
       redirect: false,

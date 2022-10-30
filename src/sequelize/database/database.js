@@ -9,12 +9,12 @@ const sequelize = new Sequelize(
     host: process.env.AWS_PGHOST,
     dialect: process.env.AWS_DIALECT,
     port: process.env.AWS_PGPORT,
-  }
+  },
+  { logging: false }
 );
 
 sequelize.authenticate().then(() => {
-  console.log("Connection established successfully with promise");
+  console.log("Connected to DB");
 });
-
 
 module.exports = sequelize;

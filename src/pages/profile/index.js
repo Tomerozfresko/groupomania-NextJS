@@ -3,13 +3,23 @@ import Header from "../../components/header/Header.js";
 import Leftbar from "../../components/leftBar/LeftBar";
 import Feed from "../../components/feed/Feed";
 import Rightbar from "../../components/rightBar/RightBar";
+import { useSession } from "next-auth/react";
+import useUser from "../../hooks/useUsers";
 
 export default function Profile() {
-
-  
+  const { data: session } = useSession();
+  // console.log(session);
+  // const { user, userIsLoading, userIsError } = useUser(session.user.email);
+  // if (userIsLoading) {
+  //   return <p>Loading Profil</p>;
+  // }
+  // if (userIsError) {
+  //   return <p>Error fetching usr</p>;
+  // }
+  // console.log(user);
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className={classes.profile}>
         <Leftbar />
         <div className={classes.profileRight}>
@@ -41,4 +51,3 @@ export default function Profile() {
     </>
   );
 }
-//marker

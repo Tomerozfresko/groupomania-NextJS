@@ -1,10 +1,8 @@
 import useSWR from "swr";
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-function useUser(id) {
-  const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
+function useAllPosts(id) {
   const { data, error } = useSWR("/api/posts/read", fetcher);
-
   return {
     posts: data,
     postIsLoading: !error && !data,
@@ -12,4 +10,4 @@ function useUser(id) {
   };
 }
 
-export default useUser;
+export default useAllPosts;

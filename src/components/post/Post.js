@@ -1,27 +1,17 @@
-import { useEffect, useState } from "react";
-import { usePost } from "../../hooks/useUser";
+import useOnePost from "../../hooks/useOnePost";
 import classes from "./Post.module.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import heart from "../../../public/assests/images/post/heart.png";
 import like from "../../../public/assests/images/post/like.png";
 
-import useSWR from "swr";
-
 function Post(props) {
-  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  console.log(props.post.id);
+  const { post, postIsLoading, postIsError } = useOnePost(props.post.id);
+  // console.log(post);
 
-  const { data, error } = useSWR(`/api/posts/${props.post.userId}`, fetcher,   {
-    revalidateOnMount: true,
-});
-  console.log(props.post.userId); // !! userId is not changing
-  console.log(data); //data is not refreshing
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  if (postIsLoading) return <p>Loading post...</p>;
 
-  // console.log(props.post.userId);
-  // const { user, isLoading, isError } = usePost(1);
-  // if (isLoading) return <div>loading...</div>;
-  // if (isError) return <div>failed to load</div>;
+  if (postIsError) return <p>This is an error</p>;
 
   return (
     <div className={classes.post}>
@@ -29,30 +19,30 @@ function Post(props) {
         <div className={classes.postTop}>
           <div className={classes.postTopLeft}>
             <img
-              src={data.userProfilePicture}
+              src={post.userProfilePicture}
               alt="User IMG"
               className={classes.postProfileImg}
             />
-            <span className={classes.postUserName}>{data.userName}</span>
-            <span className={classes.postDate}>{data.date}</span>
+            <span className={classes.postUserName}>{post.userName}</span>
+            <span className={classes.postDate}>{post.date}</span>
           </div>
           <div className={classes.postTopRight}>
             <MoreVertIcon />
           </div>
         </div>
         <div className={classes.postCenter}>
-          <span className={classes.postText}>{data.description}</span>
-          <img src={data.photo} alt="Post IMG" className={classes.postImg} />
+          <span className={classes.postText}>{post.description}</span>
+          <img src={post.photo} alt="Post IMG" className={classes.postImg} />
         </div>
         <div className={classes.postBottom}>
           <div className={classes.postBottomLeft}>
             <img src={heart.src} alt="Heart" className={classes.likeIcon} />
             <img src={like.src} alt="Like" className={classes.likeIcon} />
-            <span className={classes.postLikeCounter}>{data.like}</span>
+            <span className={classes.postLikeCounter}>{post.like}</span>
           </div>
           <div className={classes.postRight}>
             <span className={classes.postCommentText}>
-              {`${data.comment} comments`}
+              {`${post.comment} comments`}
             </span>
           </div>
         </div>
