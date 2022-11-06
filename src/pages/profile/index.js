@@ -7,16 +7,14 @@ import { useSession } from "next-auth/react";
 import useUser from "../../hooks/useUsers";
 
 export default function Profile() {
+  console.log(props);
   const { data: session } = useSession();
-  // console.log(session);
-  // const { user, userIsLoading, userIsError } = useUser(session.user.email);
-  // if (userIsLoading) {
-  //   return <p>Loading Profil</p>;
-  // }
-  // if (userIsError) {
-  //   return <p>Error fetching usr</p>;
-  // }
-  // console.log(user);
+  const { user, userIsLoading, userIsError } = useUser();
+
+  if (userIsLoading || postIsLoading) return <p>Loading...</p>;
+
+  if (userIsError || postIsError) return <p>This is an error</p>;
+
   return (
     <>
       {/* <Header /> */}
